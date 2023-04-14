@@ -8,3 +8,7 @@ modalButton.addEventListener("click", (event) => {
     console.log("clicked button!")
     document.getElementById("modalContainer").classList.toggle("hidden")
 });
+
+
+const closeModalButton = document.getElementsByClassName("close-modal-button")
+console.log("closeModalButton", closeModalButton)
