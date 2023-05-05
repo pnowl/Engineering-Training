@@ -65,3 +65,10 @@ console.log("jiraArray", jirasArray);
     console.log("jiraObject", jiraObject);
 }*/
 
+const listElement = document.getElementsByClassName("grid-container");
+
+jirasArray.forEach((object) => {
+    console.log(object);
+    var listItem = document.createElement("li");
+    listElement[0].prepend(listItem);
+});
