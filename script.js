@@ -37,7 +37,7 @@ const jiraLinks = new Array(
 
 
 
-/*jiraTitles.forEach(myFunction)
+jiraTitles.forEach(myFunction)
 function myFunction(jiraTitles) {
     console.log(jiraTitles);
 }
@@ -45,9 +45,9 @@ function myFunction(jiraTitles) {
 jiraLinks.forEach(myFunction)
 function myFunction(jiraLinks) {
     console.log(jiraLinks);
-}*/
+}
 
-for (let i = 0; i < jiraTitles.length; i++) {
+/*for (let i = 0; i < jiraTitles.length; i++) {
     const jiraObject = {
         title: jiraTitles[i]
     }
@@ -58,4 +58,4 @@ for (let i = 0; i < jiraLinks.length; i++) {
         link: jiraLinks[i]
     }
     console.log("jiraObject", jiraObject);
-}
+}*/
