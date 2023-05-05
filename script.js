@@ -34,5 +34,14 @@ const jiraLinks = new Array(
     "https://totalwine.atlassian.net/browse/TT-19"
 )
 
-console.log("jiraTitles", jiraTitles);
-console.log("jiraLinks", jiraLinks);
+
+
+jiraTitles.forEach(myFunction)
+function myFunction(jiraTitles) {
+    console.log(jiraTitles);
+}
+
+jiraLinks.forEach(myFunction)
+function myFunction(jiraLinks) {
+    console.log(jiraLinks);
+}
