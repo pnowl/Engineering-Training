@@ -70,5 +70,9 @@ const listElement = document.getElementsByClassName("grid-container");
 jirasArray.forEach((object) => {
     console.log(object);
     var listItem = document.createElement("li");
-    listElement[0].prepend(listItem);
+    var listItem = document.createElement('li');
+    listItem.innerHTML = `<i class="bi bi-check-circle-fill">
+    <a href="${object.link}"/a>${object.title}</i>
+    `;
+    listElement[0].append(listItem);
 });
