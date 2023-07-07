@@ -4,7 +4,9 @@ console.log("modalButton", modalButton);
 
 function loadData() {
     setTimeout(() => {
+        document.getElementById("modalContainer").classList.toggle("hidden")
         console.log("data loaded");
+        renderData();
     }, 1000)
 };
 
@@ -72,13 +74,16 @@ console.log("jiraArray", jirasArray);
 
 const listElement = document.getElementsByClassName("grid-container");
 
-jirasArray.forEach((object) => {
-    console.log(object);
-    var listItem = document.createElement("li");
-    var listItem = document.createElement('li');
-    listItem.innerHTML = `<i class="bi bi-check-circle-fill">
+
+function renderData() {
+    jirasArray.forEach((object) => {
+        console.log(object);
+        var listItem = document.createElement("li");
+        var listItem = document.createElement('li');
+        listItem.innerHTML = `<i class="bi bi-check-circle-fill">
     <a href="${object.link}"/a>${object.title}</i>
     `;
-    listElement[0].append(listItem);
-});
+        listElement[0].append(listItem);
+    });
+}
 
