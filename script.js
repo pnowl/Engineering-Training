@@ -2,10 +2,15 @@ console.log("Engineering Training");
 const modalButton = document.getElementById("modalButton");
 console.log("modalButton", modalButton);
 
-
+function loadData() {
+    setTimeout(() => {
+        console.log("data loaded");
+    }, 1000)
+};
 
 modalButton.addEventListener("click", (event) => {
     console.log("clicked button!")
+    loadData();
     document.getElementById("modalContainer").classList.toggle("hidden")
 });
 
@@ -76,3 +81,4 @@ jirasArray.forEach((object) => {
     `;
     listElement[0].append(listItem);
 });
+
