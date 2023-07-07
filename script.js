@@ -79,7 +79,6 @@ function renderData() {
     jirasArray.forEach((object) => {
         console.log(object);
         var listItem = document.createElement("li");
-        var listItem = document.createElement('li');
         listItem.innerHTML = `<i class="bi bi-check-circle-fill">
     <a href="${object.link}"/a>${object.title}</i>
     `;
