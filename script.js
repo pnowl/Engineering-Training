@@ -76,6 +76,7 @@ const listElement = document.getElementsByClassName("grid-container");
 
 
 function renderData() {
+    let response = '';
     jirasArray.forEach((object) => {
         console.log(object);
         var listItem = document.createElement("li");
