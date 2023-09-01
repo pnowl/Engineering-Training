@@ -6,6 +6,10 @@ const router = express.Router();
 
 const port = 3000
 
+router.get('/getJiraTickets', (req, res) => {
+    res.json({ "jirasObject": [] });
+});
+
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 })
