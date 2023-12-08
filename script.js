@@ -4,9 +4,13 @@ console.log("modalButton", modalButton);
 
 function loadData() {
     setTimeout(() => {
-        document.getElementById("modalContainer").classList.toggle("hidden")
+
         console.log("data loaded");
-        renderData();
+        renderData().then((response) => {
+            listElement[0].innerHTML = response;
+            modalContainer.classList.toggle("hidden");
+
+        })
     }, 1000)
 };
 
@@ -23,7 +27,7 @@ console.log("closeModalButton", closeModalButton)
 closeModalButton.addEventListener("click", function () {
     console.log("clicked close modal button!");
     const modalContainer = document.getElementById("modalContainer");
-    modalContainer.classList.toggle("hidden");
+
 });
 
 const jiraTitles = new Array(
@@ -48,7 +52,7 @@ const jiraLinks = new Array(
 function myFunction(jiraTitles) {
     console.log(jiraTitles);
 }
-
+ 
 jiraLinks.forEach(myFunction)
 function myFunction(jiraLinks) {
     console.log(jiraLinks);
@@ -66,7 +70,7 @@ for (let i = 0; i < jiraTitles.length; i++) {
 console.log("jiraArray", jirasArray);
 /*for (let i = 0; i < jiraLinks.length; i++) {
     const jiraObject = {
-
+ 
     }
     jirasArray.push(jiraObject);
     console.log("jiraObject", jiraObject);
@@ -76,17 +80,20 @@ const listElement = document.getElementsByClassName("grid-container");
 
 
 function renderData() {
-    let response = '';
-    jirasArray.forEach((object) => {
-        response +=                   // concatenating a string vs appending a child to the DOM
-            `<li>
+    return new Promise((resolve) => {
+        let response = '';
+        jirasArray.forEach((object) => {
+            response +=                   // concatenating a string vs appending a child to the DOM
+                `<li>
               <i class="bi bi-x"></i>
               <i class="bi bi-check-circle-fill"></i>
               <a href="${object.link}">${object.title}</a>
             </li>`;
-    });
-    listElement[0].innerHTML = response; // accessing the DOM only once vs multiple iterations
+        });
+        resolve(response);
+    })
 }
+
 
 modalButton.addEventListener("click", async () => {
     const response = await fetch('/getJiraTickets');
