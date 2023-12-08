@@ -78,13 +78,14 @@ const listElement = document.getElementsByClassName("grid-container");
 function renderData() {
     let response = '';
     jirasArray.forEach((object) => {
-        console.log(object);
-        var listItem = document.createElement("li");
-        listItem.innerHTML = `<i class="bi bi-check-circle-fill">
-    <a href="${object.link}"/a>${object.title}</i>
-    `;
-        listElement[0].append(listItem);
+        response +=                   // concatenating a string vs appending a child to the DOM
+            `<li>
+              <i class="bi bi-x"></i>
+              <i class="bi bi-check-circle-fill"></i>
+              <a href="${object.link}">${object.title}</a>
+            </li>`;
     });
+    listElement[0].innerHTML = response; // accessing the DOM only once vs multiple iterations
 }
 
 modalButton.addEventListener("click", async () => {
@@ -93,4 +94,4 @@ modalButton.addEventListener("click", async () => {
     response.then((data) => {
         console.log(data); // JSON data parsed by `data.json()` call
     });
-}
+})
